@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using LifeInsuranceWeb;
 using LifeInsuranceWeb.Controllers;
+using LifeInsurance;
 
 namespace LifeInsuranceWeb.Tests.Controllers
 {
@@ -13,42 +14,24 @@ namespace LifeInsuranceWeb.Tests.Controllers
     public class HomeControllerTest
     {
         [TestMethod]
-        public void Index()
+        public void TestCalculation()
         {
             // Arrange
-            HomeController controller = new HomeController();
+            Client client = new Client();
+            client.Age = 31;
+            client.Children = "N";
+            client.Gender = "M";
+            client.HoursOfExercise = 3;
+            client.Smoker = "Y";
+            client.Country = "England";
 
             // Act
-            ViewResult result = controller.Index() as ViewResult;
-
+            Double ExpectedPremium = 560.00;
+            Double TotalPremium = LifeInsurance.Calculation.CalculatePrice(client);
+            
             // Assert
-            Assert.IsNotNull(result);
-        }
-
-        [TestMethod]
-        public void About()
-        {
-            // Arrange
-            HomeController controller = new HomeController();
-
-            // Act
-            ViewResult result = controller.About() as ViewResult;
-
-            // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
-        }
-
-        [TestMethod]
-        public void Contact()
-        {
-            // Arrange
-            HomeController controller = new HomeController();
-
-            // Act
-            ViewResult result = controller.Contact() as ViewResult;
-
-            // Assert
-            Assert.IsNotNull(result);
+            Assert.IsNotNull(TotalPremium);
+            Assert.AreEqual(ExpectedPremium, TotalPremium);
         }
     }
 }

@@ -10,6 +10,7 @@ namespace LifeInsuranceWeb.Models
     {
         [Required(ErrorMessage="Date of birth required")]
         [Display(Name = "Date of birth?")]
+        [DataType(DataType.Date)]
         public string Age { get; set; }
         [Required(ErrorMessage = "Gender required")]
         public string Gender { get; set; }

@@ -22,13 +22,8 @@ namespace LifeInsuranceWeb.Controllers
             about.FirstName = "Tom";
             about.Surname = "Evans";
             about.Location = "Peterboough, UK";
-            about.Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ullamcorper elementum turpis, " +
-                                "sed sollicitudin est. Nunc tempor auctor lacus vel commodo. Integer justo eros, imperdiet sit amet" +
-                                "sem sit amet, consequat iaculis ante. Pellentesque suscipit bibendum ipsum vitae mattis. Quisque molestie" +
-                                "purus sed augue egestas, ut facilisis tortor malesuada. Quisque aliquam placerat libero quis rhoncus. " +
-                                "Quisque ut ultrices mi. Sed id interdum tortor. Donec volutpat, augue nec elementum tincidunt, dolor enim" +
-                                "maximus ex, id imperdiet diam magna in lacus. Nam gravida a turpis vel feugiat. Vivamus nulla mauris, " +
-                                "hendrerit vitae elementum eu, luctus in massa. Praesent vel turpis facilisis, ultrices urna in, eleifend velit.";
+            about.Description = "This is a test site for me to practice using MVC and Razor";
+                                
 
             return View(about);
         }

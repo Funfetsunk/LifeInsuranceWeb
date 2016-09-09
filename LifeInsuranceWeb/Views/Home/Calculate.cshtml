@@ -1,0 +1,72 @@
+﻿@model LifeInsuranceWeb.Models.CalculateModel
+@{
+    ViewBag.Title = "Calculate";
+}
+
+<h2>Calculate</h2>
+
+@using (Html.BeginForm("Calculate", "Home")) 
+{
+    <div>
+        @Html.LabelFor(m => m.Age)
+        @Html.TextBoxFor(m => m.Age)
+        @Html.ValidationMessageFor(m => m.Age)
+    </div>
+    
+    <div>
+        @Html.LabelFor(m => m.Gender, "Male", new { @for = "Male"})
+        @Html.RadioButtonFor(m => m.Gender, "M", new { id = "Male"})
+
+        @Html.LabelFor(m => m.Gender, "Female", new { @for = "Female" })
+        @Html.RadioButtonFor(m => m.Gender, "F", new { id = "Female" })
+        
+        @Html.ValidationMessageFor(m => m.Gender)
+    </div>
+    
+    <div>
+        @Html.LabelFor(m => m.Country)
+        @Html.TextBoxFor(m => m.Country)
+        @Html.ValidationMessageFor(m => m.Country)
+    </div>
+    
+    <div>
+        @Html.LabelFor(m => m.Smoker)
+        @Html.LabelFor(m => m.Smoker, "Yes", new { @for = "SmokerYes" })
+        @Html.RadioButtonFor(m => m.Smoker, "Y", new { id = "SmokerYes" })
+
+        @Html.LabelFor(m => m.Smoker, "No", new { @for = "SmokerNo" })
+        @Html.RadioButtonFor(m => m.Smoker, "N", new { id = "SmokerNo" })
+
+        @Html.ValidationMessageFor(m => m.Smoker)
+    </div>
+    
+    <div>
+        @Html.LabelFor(m => m.HoursOfExercise)
+        @Html.TextBoxFor(m => m.HoursOfExercise)
+        @Html.ValidationMessageFor(m => m.HoursOfExercise)
+    </div>
+   
+    
+    <div>
+        @Html.LabelFor(m => m.Children)
+        @Html.LabelFor(m => m.Children, "Yes", new { @for = "ChildYes" })
+        @Html.RadioButtonFor(m => m.Children, "Y", new { id = "ChildYes" })
+
+        @Html.LabelFor(m => m.Children, "No", new { @for = "ChildNo" })
+        @Html.RadioButtonFor(m => m.Children, "N", new { id = "ChildNo" })
+
+        @Html.ValidationMessageFor(m => m.Children)
+    </div>
+    
+
+<div>
+    <input type="submit" value="Calculate" class="btn btn-default" />
+</div>
+    
+<div>
+    @if (Model != null)
+    {
+        @Model.TotalPremium;
+    }
+</div>
+}
